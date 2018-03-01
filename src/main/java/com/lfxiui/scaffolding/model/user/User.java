@@ -1,37 +1,44 @@
-package com.lfxiui.scaffolding.model;
+package com.lfxiui.scaffolding.model.user;
 
 import java.util.Date;
 import javax.persistence.*;
 
-@Table(name = "s_user")
-public class SUser {
+public class User {
+    /**
+     * ID
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     /**
-     * 用户昵称
+     * 昵称
      */
     private String nickname;
 
     /**
-     * 邮箱|登录帐号
+     * 邮箱
      */
     private String email;
 
     /**
      * 密码
      */
-    private String pswd;
+    private String password;
 
     /**
-     * 创建时间
+     * 账号
+     */
+    private String account;
+
+    /**
+     * 注册时间
      */
     @Column(name = "create_time")
     private Date createTime;
 
     /**
-     * 最后登录时间
+     * 最后登陆时间
      */
     @Column(name = "last_login_time")
     private Date lastLoginTime;
@@ -39,53 +46,57 @@ public class SUser {
     /**
      * 1:有效，0:禁止登录
      */
-    private Long status;
+    private Integer status;
 
     /**
-     * @return id
+     * 获取ID
+     *
+     * @return id - ID
      */
     public Long getId() {
         return id;
     }
 
     /**
-     * @param id
+     * 设置ID
+     *
+     * @param id ID
      */
     public void setId(Long id) {
         this.id = id;
     }
 
     /**
-     * 获取用户昵称
+     * 获取昵称
      *
-     * @return nickname - 用户昵称
+     * @return nickname - 昵称
      */
     public String getNickname() {
         return nickname;
     }
 
     /**
-     * 设置用户昵称
+     * 设置昵称
      *
-     * @param nickname 用户昵称
+     * @param nickname 昵称
      */
     public void setNickname(String nickname) {
         this.nickname = nickname;
     }
 
     /**
-     * 获取邮箱|登录帐号
+     * 获取邮箱
      *
-     * @return email - 邮箱|登录帐号
+     * @return email - 邮箱
      */
     public String getEmail() {
         return email;
     }
 
     /**
-     * 设置邮箱|登录帐号
+     * 设置邮箱
      *
-     * @param email 邮箱|登录帐号
+     * @param email 邮箱
      */
     public void setEmail(String email) {
         this.email = email;
@@ -94,52 +105,70 @@ public class SUser {
     /**
      * 获取密码
      *
-     * @return pswd - 密码
+     * @return password - 密码
      */
-    public String getPswd() {
-        return pswd;
+    public String getPassword() {
+        return password;
     }
 
     /**
      * 设置密码
      *
-     * @param pswd 密码
+     * @param password 密码
      */
-    public void setPswd(String pswd) {
-        this.pswd = pswd;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     /**
-     * 获取创建时间
+     * 获取账号
      *
-     * @return create_time - 创建时间
+     * @return account - 账号
+     */
+    public String getAccount() {
+        return account;
+    }
+
+    /**
+     * 设置账号
+     *
+     * @param account 账号
+     */
+    public void setAccount(String account) {
+        this.account = account;
+    }
+
+    /**
+     * 获取注册时间
+     *
+     * @return create_time - 注册时间
      */
     public Date getCreateTime() {
         return createTime;
     }
 
     /**
-     * 设置创建时间
+     * 设置注册时间
      *
-     * @param createTime 创建时间
+     * @param createTime 注册时间
      */
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
     /**
-     * 获取最后登录时间
+     * 获取最后登陆时间
      *
-     * @return last_login_time - 最后登录时间
+     * @return last_login_time - 最后登陆时间
      */
     public Date getLastLoginTime() {
         return lastLoginTime;
     }
 
     /**
-     * 设置最后登录时间
+     * 设置最后登陆时间
      *
-     * @param lastLoginTime 最后登录时间
+     * @param lastLoginTime 最后登陆时间
      */
     public void setLastLoginTime(Date lastLoginTime) {
         this.lastLoginTime = lastLoginTime;
@@ -150,7 +179,7 @@ public class SUser {
      *
      * @return status - 1:有效，0:禁止登录
      */
-    public Long getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
@@ -159,7 +188,7 @@ public class SUser {
      *
      * @param status 1:有效，0:禁止登录
      */
-    public void setStatus(Long status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 }

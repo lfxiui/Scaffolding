@@ -1,9 +1,8 @@
-package com.lfxiui.scaffolding.model;
+package com.lfxiui.scaffolding.model.user;
 
 import javax.persistence.*;
 
-@Table(name = "s_role")
-public class SRole {
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

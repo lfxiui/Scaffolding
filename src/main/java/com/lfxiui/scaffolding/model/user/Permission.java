@@ -1,20 +1,19 @@
-package com.lfxiui.scaffolding.model;
+package com.lfxiui.scaffolding.model.user;
 
 import javax.persistence.*;
 
-@Table(name = "s_permission")
-public class SPermission {
+public class Permission {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     /**
-     * url地址
+     * 资源
      */
     private String url;
 
     /**
-     * url描述
+     * 资源描述
      */
     private String name;
 
@@ -33,36 +32,36 @@ public class SPermission {
     }
 
     /**
-     * 获取url地址
+     * 获取资源
      *
-     * @return url - url地址
+     * @return url - 资源
      */
     public String getUrl() {
         return url;
     }
 
     /**
-     * 设置url地址
+     * 设置资源
      *
-     * @param url url地址
+     * @param url 资源
      */
     public void setUrl(String url) {
         this.url = url;
     }
 
     /**
-     * 获取url描述
+     * 获取资源描述
      *
-     * @return name - url描述
+     * @return name - 资源描述
      */
     public String getName() {
         return name;
     }
 
     /**
-     * 设置url描述
+     * 设置资源描述
      *
-     * @param name url描述
+     * @param name 资源描述
      */
     public void setName(String name) {
         this.name = name;

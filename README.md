@@ -18,13 +18,15 @@
 
 生成代码的方法:
 
+不同的的数据源要修改pom.xml中generatorConfig.xml所在的文件夹目录
+
 在pom.xml这一级目录的命令行窗口执行mvn mybatis-generator:generate即可**前提是配置了mvn**
     
 ### 时间转格式注解
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone="GMT+8")//解决时区问题，没有timezone会少一天
 
-### [PageHelper](文档地址：https://pagehelper.github.io/)
+### [PageHelper](https://pagehelper.github.io/)
 ```java
 public PageInfo getUsers(){
     PageHelper.startPage(2,10);  //页码，数据条数
@@ -35,3 +37,11 @@ public PageInfo getUsers(){
     return userPageInfo;
 }
 ```
+### [Alibaba Druid](https://github.com/alibaba/druid)
+阿里巴巴的druid连接池，使用默认配置
+
+## 配置
+
+### 多数据源
+- **User**：用户模块数据源
+- **Scaffolding**：主要模块数据源
