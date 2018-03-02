@@ -1,5 +1,6 @@
 package com.lfxiui.scaffolding.serviceTest;
 
+import com.lfxiui.scaffolding.util.PasswordUtil;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,8 +19,8 @@ public class UserServiceTest {
 
 
     @Before
-    public void start() throws Exception{
-        System.out.println(new Date()+" UserServiceTest.class");
+    public void start() throws Exception {
+        System.out.println(new Date() + " UserServiceTest.class");
     }
 
     /**
@@ -29,6 +30,10 @@ public class UserServiceTest {
      */
     @Test
     public void test() throws Exception {
-
+        PasswordUtil passwordUtil = new PasswordUtil();
+        String salt = passwordUtil.getSalt();
+        System.out.println(salt);
+        String password = "admin";
+        System.out.println(passwordUtil.md5Password(password, salt));
     }
 }

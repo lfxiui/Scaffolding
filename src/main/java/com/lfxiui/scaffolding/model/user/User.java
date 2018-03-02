@@ -1,7 +1,10 @@
 package com.lfxiui.scaffolding.model.user;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Date;
-import javax.persistence.*;
 
 public class User {
     /**
@@ -47,6 +50,11 @@ public class User {
      * 1:有效，0:禁止登录
      */
     private Integer status;
+
+    /**
+     * 密码加密盐
+     */
+    private String salt;
 
     /**
      * 获取ID
@@ -190,5 +198,23 @@ public class User {
      */
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    /**
+     * 获取密码加密盐
+     *
+     * @return salt - 密码加密盐
+     */
+    public String getSalt() {
+        return salt;
+    }
+
+    /**
+     * 设置密码加密盐
+     *
+     * @param salt 密码加密盐
+     */
+    public void setSalt(String salt) {
+        this.salt = salt;
     }
 }

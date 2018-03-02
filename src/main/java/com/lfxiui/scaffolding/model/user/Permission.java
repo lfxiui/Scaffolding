@@ -1,6 +1,8 @@
 package com.lfxiui.scaffolding.model.user;
 
-import javax.persistence.*;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 public class Permission {
     @Id

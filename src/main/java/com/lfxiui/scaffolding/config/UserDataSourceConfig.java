@@ -20,7 +20,7 @@ import javax.sql.DataSource;
  * @date 2018/2/28 0028 11:26
  */
 @Configuration
-@MapperScan(basePackages = UserDataSourceConfig.PACKAGE,sqlSessionFactoryRef = "userSqlSessionFactory")
+@MapperScan(basePackages = UserDataSourceConfig.PACKAGE, sqlSessionFactoryRef = "userSqlSessionFactory")
 public class UserDataSourceConfig {
     static final String PACKAGE = "com.lfxiui.scaffolding.mapper.user";
     static final String MAPPER_XML = "classpath:mapper/user/*.xml";
@@ -38,7 +38,7 @@ public class UserDataSourceConfig {
     private String driverClass;
 
     @Bean(name = "userDataSource")
-    public DataSource userDataSource(){
+    public DataSource userDataSource() {
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setDriverClassName(driverClass);
         dataSource.setPassword(password);
@@ -48,13 +48,13 @@ public class UserDataSourceConfig {
     }
 
     @Bean(name = "userTransactionManager")
-    public DataSourceTransactionManager userTransactionManager(){
+    public DataSourceTransactionManager userTransactionManager() {
         return new DataSourceTransactionManager(userDataSource());
     }
 
     @Bean(name = "userSqlSessionFactory")
     public SqlSessionFactory userSqlSessionFactory(@Qualifier("userDataSource") DataSource userDataSource)
-        throws Exception {
+            throws Exception {
         final SqlSessionFactoryBean sessionFactoryBean = new SqlSessionFactoryBean();
         sessionFactoryBean.setDataSource(userDataSource);
         sessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver()

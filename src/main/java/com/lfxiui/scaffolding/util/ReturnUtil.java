@@ -5,16 +5,16 @@ import java.util.Map;
 
 /**
  * 返回数据工具类
- * 
+ *
  * @author lfxiui
  * @date 2018/2/28 0028 16:40
  */
 public class ReturnUtil {
-    private static Map<String,String> returnMap = new HashMap<>(1);
-    
+    private static Map<String, String> returnMap = new HashMap<>(1);
+
     //常用初始化状态码与文字说明
     static {
-        returnMap.put("200","访问成功！");
+        returnMap.put("200", "访问成功！");
 
         returnMap.put("400", "Bad Request!");
         returnMap.put("401", "NotAuthorization");
@@ -37,6 +37,7 @@ public class ReturnUtil {
         returnMap.put("1014", "用户信息编辑失败");
         returnMap.put("1015", "用户信息失效，请重新获取");
         returnMap.put("1016", "注册失败");
+        returnMap.put("1999", "请先登录");
 
         returnMap.put("1020", "验证码发送失败");
         returnMap.put("1021", "验证码失效");
@@ -64,7 +65,7 @@ public class ReturnUtil {
         returnMap.put("2023", "请重新登录");
     }
 
-    public static JsonFormat getResult(int code,Object data){
-        return new JsonFormat(code,returnMap.get(String.valueOf(code)),data);
+    public static JsonFormat getResult(int code, Object data) {
+        return new JsonFormat(code, returnMap.get(String.valueOf(code)), data);
     }
 }

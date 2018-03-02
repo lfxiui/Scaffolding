@@ -1,6 +1,7 @@
 package com.lfxiui.scaffolding.model.user;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Table;
 
 @Table(name = "role_permission")
 public class RolePermission {

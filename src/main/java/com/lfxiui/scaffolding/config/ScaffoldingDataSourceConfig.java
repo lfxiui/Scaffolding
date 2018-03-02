@@ -21,7 +21,7 @@ import javax.sql.DataSource;
  * @date 2018/2/28 0028 11:27
  */
 @Configuration
-@MapperScan(basePackages = ScaffoldingDataSourceConfig.PACKAGE,sqlSessionFactoryRef = "scaffoldingSqlSessionFactory")
+@MapperScan(basePackages = ScaffoldingDataSourceConfig.PACKAGE, sqlSessionFactoryRef = "scaffoldingSqlSessionFactory")
 public class ScaffoldingDataSourceConfig {
     static final String PACKAGE = "com.lfxiui.scaffolding.mapper.scaffolding";
     static final String MAPPER_XML = "classpath:mapper/scaffolding/*.xml";
@@ -40,7 +40,7 @@ public class ScaffoldingDataSourceConfig {
 
     @Bean(name = "scaffoldingDataSource")
     @Primary
-    public DataSource scaffoldingDataSource(){
+    public DataSource scaffoldingDataSource() {
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setDriverClassName(driverClass);
         dataSource.setPassword(password);
@@ -51,7 +51,7 @@ public class ScaffoldingDataSourceConfig {
 
     @Bean(name = "scaffoldingTransactionManager")
     @Primary
-    public DataSourceTransactionManager scaffoldingTransactionManager(){
+    public DataSourceTransactionManager scaffoldingTransactionManager() {
         return new DataSourceTransactionManager(scaffoldingDataSource());
     }
 
