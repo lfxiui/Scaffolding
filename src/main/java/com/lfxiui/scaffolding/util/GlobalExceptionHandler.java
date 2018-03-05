@@ -1,6 +1,7 @@
 package com.lfxiui.scaffolding.util;
 
 import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.DisabledAccountException;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.springframework.beans.ConversionNotSupportedException;
@@ -12,6 +13,7 @@ import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +27,18 @@ import java.io.IOException;
  */
 @ControllerAdvice
 public class GlobalExceptionHandler {
+    /**
+     * 用户被禁止登陆
+     *
+     * @param e
+     * @return
+     */
+    @ExceptionHandler(DisabledAccountException.class)
+    @ResponseBody
+    public JsonFormat disabledAccountException(DisabledAccountException e){
+        return ReturnUtil.getResult(1013,null);
+    }
+
     /**
      * 密码错误
      *

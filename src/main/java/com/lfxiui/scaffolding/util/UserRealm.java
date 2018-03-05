@@ -44,6 +44,8 @@ public class UserRealm extends AuthorizingRealm {
         if (user == null) {
             //用户不存在，抛出账号异常
             throw new UnknownAccountException();
+        }else if (user.getStatus() == 0){
+            throw new DisabledAccountException("用户账号冻结");
         }
         return new SimpleAuthenticationInfo(
                 user,

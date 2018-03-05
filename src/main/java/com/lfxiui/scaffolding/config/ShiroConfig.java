@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.Date;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -31,8 +31,8 @@ public class ShiroConfig {
         System.out.println(new Date() + "Shiro拦截器");
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
 
-        //拦截项,顺序判断
-        Map<String, String> filterMap = new HashMap<>(11);
+        //拦截项,顺序判断,LinkedHashMap有序
+        Map<String, String> filterMap = new LinkedHashMap<>();
         //静态资源,spring boot默认映射路径
         filterMap.put("/css/**", "anon");
         filterMap.put("/js/**", "anon");
