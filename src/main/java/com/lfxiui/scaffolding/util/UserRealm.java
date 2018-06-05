@@ -38,9 +38,7 @@ public class UserRealm extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
-        User getUser = new User();
-        getUser.setAccount(token.getUsername());
-        User user = userService.getUser(getUser);
+        User user = userService.getUserByAccount(token.getUsername());
         if (user == null) {
             //用户不存在，抛出账号异常
             throw new UnknownAccountException();
